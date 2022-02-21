@@ -106,13 +106,42 @@ namespace btrie {
 }  // namespace btrie
 
 namespace kruskals_mst {
-	
-}
+	int find(int* parent, int i) {
+		if(parent[i] == -1) return i;
+		return find(parent, parent[i]);
+	}
 
-int solve(int n, vector<int> arr) {
-	
-}
+	void make_union(int* parent, int x, int y) { parent[x] = y; }
+
+	bool has_cycle(int v, int e, vector<int>& edges) {
+		int* parent = (int*)malloc(v * sizeof(int));
+		memset(parent, -1, sizeof(int) * v);
+
+		for(int i = 0; i < e; i++) {
+			int x = find(parent, i);
+			int y = find(parent, edges[i]);
+
+			if(x == y) return true;
+
+			make_union(parent, x, y);
+		}
+
+		return false;
+	}
+}  // namespace kruskals_mst
 
 int main() {
-	
+	int n, e;
+	vector<int> edges;
+
+	cin >> n >> e;
+	int tmp;
+	int i = e;
+
+	while(i--) {
+		cin >> tmp;
+		edges.push_back(tmp);
+	}
+
+	cout << kruskals_mst::has_cycle(n, e, edges) << endl;
 }
