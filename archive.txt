@@ -1,0 +1,64 @@
+completed, query_game, zycus, dsa, python, easy - date_2022_01_28_time_22_31_53.py
+
+completed, infosys, dsa, python, easy - date_2022_01_28_time_22_32_21.py
+
+completed, reverse_sentence, dsa, python, easy - date_2022_02_03_time_12_03_58.py
+
+try, query_game, zycus, dsa, cpp, easy - date_2022_02_03_time_12_04_37.cpp
+
+completed, std:initializer_list, test, cpp, easy - date_2022_02_03_time_15_10_59.cpp
+
+completed, kadane, max_subarray_sum, subarray, sum, python, easy - date_2022_02_03_time_15_12_05.py
+
+completed, kadane, max_subarray_product, subarray, product, cpp, medium - date_2022_02_03_time_15_37_16.cpp
+
+completed, maximum_length_of_subarray_with_positive_product, dp, dsa, cpp, medium - date_2022_02_03_time_21_09_39.cpp
+
+completed, best_sightseeing_pair, prefix_sum, dp, dsa, cpp, medium - date_2022_02_03_time_22_12_48.cpp
+
+completed, best_time_to_buy_and_sell_stock_ii, dp, dsa, cpp, medium - date_2022_02_03_time_22_54_19.cpp
+
+completed, best_time_to_buy_and_sell_stock, prefix_sum, dp, dsa, cpp, medium - date_2022_02_03_time_22_55_12.cpp
+
+completed, binary, non_consecative_ones, dsa, python, easy - date_2022_02_04_time_12_31_53.py
+
+completed, consecutive_composite_numbers_in_a_range, dsa, python, medium - date_2022_02_04_time_13_31_16.py
+
+completed, word_break, dsa, leetcode, dfs, backtracking, memoization, python, medium - date_2022_02_08_time_13_24_16.py
+
+completed, word_break, dsa, leetcode, dfs, backtracking, memoization, cpp, medium - date_2022_02_08_time_13_37_14.cpp
+
+completed, word_break, dsa, leetcode, dp, cpp, medium - date_2022_02_08_time_13_53_44.cpp
+
+completed, dsa, placement, cpp, easy - date_2022_02_08_time_21_18_27.cpp
+
+completed, dsa, maps, placement, python, medium - date_2022_02_09_time_12_52_02.py
+
+completed, sorting_algorithms, dsa, archive_1, cpp, medium - date_2022_02_09_time_12_53_29.cpp
+
+completed, equal_left_and_right_sum_binary_numbers, dsa, recursion, python, medium - date_2022_02_09_time_15_44_35.py
+
+completed, sorting_algorithms, dsa, archive_1, python, medium - date_2022_02_10_time_11_08_48.py
+
+completed, reverse_linked_list, singly_linked_list, linked_list, dsa, archive_1, cpp, easy - date_2022_02_10_time_11_09_48.cpp
+
+completed, amadeus, hiring, dsa, map, python, easy - date_2022_02_12_time_11_51_05.py
+
+completed, amadeus, hiring, dsa, make_non_decreasing_array, python, easy - date_2022_02_12_time_12_25_45.py
+
+completed, leetcode, min_falling_path_sum, dp, cpp, medium - date_2022_02_12_time_13_34_09.cpp
+
+completed, leetcode, triangle, min_falling_path_sum_in_a_triangle, dp, cpp, medium - date_2022_02_12_time_13_56_17.cpp
+
+completed, leetcode, matrixBlockSum, range_sum_query_immutable, dp, cpp, medium - date_2022_02_12_time_20_16_36.cpp
+
+completed, leetcode, range_sum_query_immutable, dp, cpp, medium - date_2022_02_12_time_20_18_18.cpp
+
+try, polkadot, hiring, combinatorics, dsa, cpp, hard - date_2022_02_14_time_13_08_39.cpp
+
+completed, maximum_xor_sum_subarray, codeforces, trie, b_trie, prefix, prefix_xor, dsa, cpp, hard - date_2022_02_15_time_01_11_01.cpp
+
+completed, special_bits, hackerearth, bit, bit_manipulation, dsa, long_long, cpp, hard - date_2022_02_16_time_01_19_27.cpp
+
+completed, maximal_square, leetcode, prefix, prefix_sum, sliding_window, dsa, cpp, medium - date_2022_02_16_time_21_19_51.cpp
+
