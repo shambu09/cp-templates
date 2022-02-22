@@ -48,7 +48,6 @@ std::ostream& operator<<(std::ostream& os,
 	return os << "<" << p.first << ", " << p.second << ">";
 }
 
-
 //----------------------------------------------------------------------------------------//
 
 //----------------------shortcut for vector.begin() and vector.end()----------------------//

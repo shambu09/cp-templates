@@ -46,10 +46,12 @@ int main() {
 
 	cin >> n;
 	int tmp;
+
 	while(n--) {
 		cin >> tmp;
 		arr.push_back(tmp);
 	}
+	
 	cin >> t;
 
 	Solution s = Solution();

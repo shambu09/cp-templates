@@ -73,5 +73,6 @@ int main() {
 
 	Solution s = Solution();
 	cout << s.minCostConnectPoints(points);
+	
 	return 0;
 }

@@ -132,7 +132,7 @@ namespace kruskals_mst {
 		});
 
 		subset* subsets = (subset*)malloc(v * sizeof(subset));
-		vector<vector<int>> graph;
+		vector<vector<int>> g;
 		int x, y;
 
 		for(int i = 0; i < v; i++) {
@@ -144,12 +144,12 @@ namespace kruskals_mst {
 			x = find(subsets, edge[0]);
 			y = find(subsets, edge[1]);
 			if(x != y) {
-				graph.push_back(edge);
+				g.push_back(edge);
 				make_union(subsets, x, y);
 			}
 		}
 
-		return graph;
+		return g;
 	}
 }  // namespace kruskals_mst
 

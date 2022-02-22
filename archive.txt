@@ -64,5 +64,5 @@ completed, maximal_square, leetcode, prefix, prefix_sum, sliding_window, dsa, cp
 
 completed, heap, max_heap, leetcode, maximum_profit, orders, dsa, cpp, medium - date_2022_02_22_time_19_27_43.cpp
 
-completed, mst, kruskals_mst, pruning, heap, min_heap, make_heap, connect_all_points_with_min_cost, cpp, medium - date_2022_02_22_time_23_40_25.cpp
+completed, mst, kruskals_mst, pruning, heap, min_heap, make_heap, greedy, connect_all_points_with_min_cost, cpp, medium - date_2022_02_22_time_23_40_25.cpp
 
