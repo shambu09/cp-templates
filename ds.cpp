@@ -51,7 +51,6 @@ namespace sll {
 
 		return prev;
 	}
-
 }  // namespace sll
 
 namespace btrie {
@@ -106,42 +105,65 @@ namespace btrie {
 }  // namespace btrie
 
 namespace kruskals_mst {
-	int find(int* parent, int i) {
-		if(parent[i] == -1) return i;
-		return find(parent, parent[i]);
+	struct subset {
+		int parent;
+		int rank;
+	};
+
+	int find(subset* subsets, int i) {
+		if(subsets[i].parent == -1) return i;
+		subsets[i].parent = find(subsets, subsets[i].parent);
+		return subsets[i].parent;
 	}
 
-	void make_union(int* parent, int x, int y) { parent[x] = y; }
+	void make_union(subset* subsets, int x, int y) {
+		if(subsets[x].rank < subsets[y].rank) {
+			subsets[x].parent = y;
+			subsets[y].rank += subsets[x].rank;
+		} else {
+			subsets[y].parent = x;
+			subsets[x].rank += subsets[y].rank;
+		}
+	}
 
-	bool has_cycle(int v, int e, vector<int>& edges) {
-		int* parent = (int*)malloc(v * sizeof(int));
-		memset(parent, -1, sizeof(int) * v);
+	vector<vector<int>> mst(int v, vector<vector<int>>& edges) {
+		sort(all(edges), [](vector<int>& left, vector<int>& right) {
+			return left[2] < right[2];
+		});
 
-		for(int i = 0; i < e; i++) {
-			int x = find(parent, i);
-			int y = find(parent, edges[i]);
+		subset* subsets = (subset*)malloc(v * sizeof(subset));
+		vector<vector<int>> graph;
+		int x, y;
 
-			if(x == y) return true;
-
-			make_union(parent, x, y);
+		for(int i = 0; i < v; i++) {
+			subsets[i].parent = -1;
+			subsets[i].rank	  = 1;
 		}
 
-		return false;
+		for(auto edge : edges) {
+			x = find(subsets, edge[0]);
+			y = find(subsets, edge[1]);
+			if(x != y) {
+				graph.push_back(edge);
+				make_union(subsets, x, y);
+			}
+		}
+
+		return graph;
 	}
 }  // namespace kruskals_mst
 
 int main() {
 	int n, e;
-	vector<int> edges;
+	vector<vector<int>> edges;
+	int d, s, w;
 
 	cin >> n >> e;
-	int tmp;
-	int i = e;
 
-	while(i--) {
-		cin >> tmp;
-		edges.push_back(tmp);
+	for(int i = 0; i < e; i++) {
+		cin >> d >> s >> w;
+		edges.push_back({d, s, w});
 	}
 
-	cout << kruskals_mst::has_cycle(n, e, edges) << endl;
+	cout << kruskals_mst::mst(n, edges) << endl;
 }

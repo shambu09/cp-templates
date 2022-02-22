@@ -42,6 +42,13 @@ std::ostream& operator<<(std::ostream& os,
 	return os << "  " << vec.back() << " ]";
 }
 
+template<class T, class N>
+std::ostream& operator<<(std::ostream& os,
+						 const std::pair<T, N> p) {
+	return os << "<" << p.first << ", " << p.second << ">";
+}
+
+
 //----------------------------------------------------------------------------------------//
 
 //----------------------shortcut for vector.begin() and vector.end()----------------------//

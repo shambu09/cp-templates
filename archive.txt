@@ -62,3 +62,7 @@ completed, special_bits, hackerearth, bit, bit_manipulation, dsa, long_long, cpp
 
 completed, maximal_square, leetcode, prefix, prefix_sum, sliding_window, dsa, cpp, medium - date_2022_02_16_time_21_19_51.cpp
 
+completed, heap, max_heap, leetcode, maximum_profit, orders, dsa, cpp, medium - date_2022_02_22_time_19_27_43.cpp
+
+completed, mst, kruskals_mst, pruning, heap, min_heap, make_heap, connect_all_points_with_min_cost, cpp, medium - date_2022_02_22_time_23_40_25.cpp
+
