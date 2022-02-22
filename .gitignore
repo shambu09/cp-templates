@@ -9,3 +9,4 @@ temp.cpp
 temp.txt
 raw.cpp
 todo.txt
+*.o
