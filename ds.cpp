@@ -176,7 +176,7 @@ namespace bin_idx_tree {
 
 		tree(int n) {
 			n++;
-			nodes = (int*)malloc((n) * sizeof(int));
+			nodes = (int*)malloc(n * sizeof(int));
 			memset(nodes, 0, n * sizeof(int));
 		}
 
