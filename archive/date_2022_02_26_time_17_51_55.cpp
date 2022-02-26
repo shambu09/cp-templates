@@ -36,7 +36,7 @@ class Solution {
 
 		for(int i : nums) {
 			int l = t.get(nax + i - 1);
-			t.update(2 * nax, nax + i, l + 1);
+			t.update(2 * nax - 1, nax + i, l + 1);
 		}
 
 		return t.get(2 * nax - 1);

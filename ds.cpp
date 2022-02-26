@@ -229,4 +229,5 @@ namespace bin_idx_tree {
 
 int main() {
 	bin_idx_tree::sample();
+	return 0;
 }

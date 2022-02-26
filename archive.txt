@@ -66,5 +66,5 @@ completed, heap, max_heap, leetcode, maximum_profit, orders, dsa, cpp, medium - 
 
 completed, mst, kruskals_mst, pruning, heap, min_heap, make_heap, greedy, connect_all_points_with_min_cost, cpp, medium - date_2022_02_22_time_23_40_25.cpp
 
-completed, binary_indexed_tree, fenwick_tree, range_query, dp, longest_increasing_subsequence, leetcode, bit, cpp, medium - date_2022_02_26_time_17_41_31.cpp
+completed, binary_indexed_tree, fenwick_tree, range_query, dp, longest_increasing_subsequence, leetcode, bit, cpp, medium - date_2022_02_26_time_17_51_55.cpp
 
