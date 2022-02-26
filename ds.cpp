@@ -181,24 +181,13 @@ namespace bin_idx_tree {
 		}
 
 		int getSum(int idx) {
-			idx++;
 			int sum = 0;
-
-			while(idx > 0) {
-				sum += nodes[idx];
-				idx -= idx & (-idx);
-			}
-
+			for(idx++; idx > 0; idx -= idx & (-idx)) sum += nodes[idx];
 			return sum;
 		}
 
 		void update(int n, int idx, int val) {
-			idx++;
-
-			while(idx <= n) {
-				nodes[idx] += val;
-				idx += idx & (-idx);
-			}
+			for(idx++; idx <= n; idx += idx & (-idx)) nodes[idx] += val;
 		}
 
 		vector<int> to_vec(int n) {
@@ -240,5 +229,4 @@ namespace bin_idx_tree {
 
 int main() {
 	bin_idx_tree::sample();
-	return 0;
 }
