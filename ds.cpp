@@ -151,19 +151,94 @@ namespace kruskals_mst {
 
 		return g;
 	}
+
+	int sample() {
+		int n, e;
+		vector<vector<int>> edges;
+		int d, s, w;
+
+		cin >> n >> e;
+
+		for(int i = 0; i < e; i++) {
+			cin >> d >> s >> w;
+			edges.push_back({d, s, w});
+		}
+
+		cout << kruskals_mst::mst(n, edges) << endl;
+
+		return 0;
+	}
 }  // namespace kruskals_mst
 
-int main() {
-	int n, e;
-	vector<vector<int>> edges;
-	int d, s, w;
+namespace bin_idx_tree {
+	struct tree {
+		int* nodes;
 
-	cin >> n >> e;
+		tree(int n) {
+			n++;
+			nodes = (int*)malloc((n) * sizeof(int));
+			memset(nodes, 0, n * sizeof(int));
+		}
 
-	for(int i = 0; i < e; i++) {
-		cin >> d >> s >> w;
-		edges.push_back({d, s, w});
+		int getSum(int idx) {
+			idx++;
+			int sum = 0;
+
+			while(idx > 0) {
+				sum += nodes[idx];
+				idx -= idx & (-idx);
+			}
+
+			return sum;
+		}
+
+		void update(int n, int idx, int val) {
+			idx++;
+
+			while(idx <= n) {
+				nodes[idx] += val;
+				idx += idx & (-idx);
+			}
+		}
+
+		vector<int> to_vec(int n) {
+			n++;
+			return vector<int>(nodes, nodes + n);
+		}
+	};
+
+	int sample() {
+		int n, tmp;
+		vector<int> nums;
+
+		cin >> n;
+
+		for(int i = 0; i < n; i++) {
+			cin >> tmp;
+			nums.push_back(tmp);
+		}
+
+		cout << nums << endl;
+		bin_idx_tree::tree root(n);
+
+		for(int i = 0; i < n; i++) {
+			root.update(n, i, nums[i]);
+		}
+
+		cout << root.to_vec(n) << endl;
+		cout << root.getSum(4) << endl;
+
+		root.update(n, 3, 1);
+
+		cout << root.to_vec(n) << endl;
+		cout << root.getSum(4) << endl;
+		cout << root.getSum(2) << endl;
+
+		return 0;
 	}
+}  // namespace bin_idx_tree
 
-	cout << kruskals_mst::mst(n, edges) << endl;
+int main() {
+	bin_idx_tree::sample();
+	return 0;
 }
