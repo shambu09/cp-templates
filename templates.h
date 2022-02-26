@@ -42,9 +42,8 @@ std::ostream& operator<<(std::ostream& os,
 	return os << "  " << vec.back() << " ]";
 }
 
-template<class T, class N>
-std::ostream& operator<<(std::ostream& os,
-						 const std::pair<T, N> p) {
+template <class T, class N>
+std::ostream& operator<<(std::ostream& os, const std::pair<T, N> p) {
 	return os << "<" << p.first << ", " << p.second << ">";
 }
 
@@ -59,4 +58,3 @@ std::ostream& operator<<(std::ostream& os,
 #define rall(s) s.rbegin(), s.rend()
 #endif
 //----------------------------------------------------------------------------------------//
-
