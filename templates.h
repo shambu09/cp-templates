@@ -10,6 +10,7 @@
 
 template <class T>
 std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
+	if(vec.size() == 0) return os << "[]";
 	os << "[";
 	for(SIZE_TYPE i = 0; i <= (SIZE_TYPE)vec.size() - 2; i++)
 		os << vec[i] << ", ";
@@ -19,6 +20,7 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
 template <class T>
 std::ostream& operator<<(std::ostream& os,
 						 const std::vector<std::vector<T>>& vec) {
+	if(vec.size() == 0) return os << "[]";
 	os << "[ " << vec[0] << ",\n";
 	for(SIZE_TYPE i = 1; i <= (SIZE_TYPE)vec.size() - 2; i++)
 		os << "  " << vec[i] << ",\n";

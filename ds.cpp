@@ -227,7 +227,110 @@ namespace bin_idx_tree {
 	}
 }  // namespace bin_idx_tree
 
+namespace avl_tree {
+	struct Node {
+		int val;
+		Node* left;
+		Node* right;
+		int height;
+
+		Node(int _val) {
+			val	   = _val;
+			height = 0;
+		}
+	};
+
+	int get_height(Node* root) {
+		if(not root) return 0;
+		return root->height;
+	}
+
+	int get_diff(Node* root) {
+		if(not root) return 0;
+		return get_height(root->left) - get_height(root->right);
+	}
+
+	Node* right_rotate(Node* root) {
+		Node* tmp  = root->left;
+		root->left = tmp->right;
+		tmp->right = root;
+
+		root->height = 1 + max(get_height(root->left), get_height(root->right));
+		tmp->height	 = 1 + max(get_height(tmp->left), get_height(tmp->right));
+
+		return tmp;
+	}
+
+	Node* left_rotate(Node* root) {
+		Node* tmp	= root->right;
+		root->right = tmp->left;
+		tmp->left	= root;
+
+		root->height = 1 + max(get_height(root->left), get_height(root->right));
+		tmp->height	 = 1 + max(get_height(tmp->left), get_height(tmp->right));
+
+		return tmp;
+	}
+
+	Node* insert(Node* root, int val) {
+		if(not root)
+			root = new Node(val);
+		else if(val > root->val)
+			root->right = insert(root->right, val);
+		else
+			root->left = insert(root->left, val);
+
+		root->height = 1 + max(get_height(root->left), get_height(root->right));
+		int diff	 = get_diff(root);
+
+		if(diff > 1 and val < root->left->val) return right_rotate(root);
+
+		if(diff < -1 and val > root->right->val) return left_rotate(root);
+
+		if(diff > 1 and val > root->left->val) {
+			root->left = left_rotate(root->left);
+			return right_rotate(root);
+		}
+
+		if(diff < -1 and val < root->right->val) {
+			root->right = right_rotate(root->right);
+			return left_rotate(root);
+		}
+
+		return root;
+	}
+
+	void pre_order(Node* root) {
+		if(not root) return;
+		cout << root->val << " ";
+		pre_order(root->left);
+		pre_order(root->right);
+	}
+
+	void sample() {
+		int n;
+		vector<int> arr;
+
+		cin >> n;
+		while(n--) {
+			arr.push_back(int());
+			cin >> arr.back();
+		}
+
+		avl_tree::Node* root = NULL;
+
+		for(auto i : arr) {
+			root = avl_tree::insert(root, i);
+		}
+
+		cout << arr << endl;
+		pre_order(root);
+		cout << endl;
+	}
+
+}  // namespace avl_tree
+
 int main() {
-	bin_idx_tree::sample();
+	avl_tree::sample();
 	return 0;
 }
