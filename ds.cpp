@@ -228,6 +228,11 @@ namespace bin_idx_tree {
 }  // namespace bin_idx_tree
 
 namespace avl_tree {
+	/*
+		Time Complexity:
+			Insertion - O(logn)
+			balancing - O(1)
+	*/
 	struct Node {
 		int val;
 		Node* left;
