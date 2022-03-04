@@ -68,3 +68,9 @@ completed, mst, kruskals_mst, pruning, heap, min_heap, make_heap, greedy, connec
 
 completed, binary_indexed_tree, fenwick_tree, range_query, dp, longest_increasing_subsequence, leetcode, bit, cpp, medium - date_2022_02_26_time_17_51_55.cpp
 
+completed, longest_common_subsequence, leetcode, dp, dsa, string, string_manipulation, cpp, medium - date_2022_03_04_time_22_42_05.cpp
+
+completed, max_path_value, coding_ninjas, dp, dfs, graph, directed_graph, dsa, cycle, cpp, medium - date_2022_03_04_time_22_43_34.cpp
+
+completed, edit_distance, leetcode, dp, dsa, string, string_manipulation, cpp, hard - date_2022_03_04_time_23_38_52.cpp
+
