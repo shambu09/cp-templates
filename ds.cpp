@@ -43,10 +43,10 @@ namespace sll {
 		next = head;
 
 		while(curr != NULL) {
-			next	   = curr->next;
+			next = curr->next;
 			curr->next = prev;
-			prev	   = curr;
-			curr	   = next;
+			prev = curr;
+			curr = next;
 		}
 
 		return prev;
@@ -83,7 +83,7 @@ namespace btrie {
 	}
 
 	int findMin(node* root, int num) {
-		int i	  = 0;
+		int i = 0;
 		int value = 0;
 
 		while(num != 0) {
@@ -96,7 +96,7 @@ namespace btrie {
 				return value;
 
 			value = (idx << i) + value;
-			num	  = num >> 1;
+			num = num >> 1;
 			i++;
 		}
 
@@ -137,7 +137,7 @@ namespace kruskals_mst {
 
 		for(int i = 0; i < v; i++) {
 			subsets[i].parent = -1;
-			subsets[i].rank	  = 1;
+			subsets[i].rank = 1;
 		}
 
 		for(auto edge : edges) {
@@ -240,7 +240,7 @@ namespace avl_tree {
 		int height;
 
 		Node(int _val) {
-			val	   = _val;
+			val = _val;
 			height = 0;
 		}
 	};
@@ -256,23 +256,23 @@ namespace avl_tree {
 	}
 
 	Node* right_rotate(Node* root) {
-		Node* tmp  = root->left;
+		Node* tmp = root->left;
 		root->left = tmp->right;
 		tmp->right = root;
 
 		root->height = 1 + max(get_height(root->left), get_height(root->right));
-		tmp->height	 = 1 + max(get_height(tmp->left), get_height(tmp->right));
+		tmp->height = 1 + max(get_height(tmp->left), get_height(tmp->right));
 
 		return tmp;
 	}
 
 	Node* left_rotate(Node* root) {
-		Node* tmp	= root->right;
+		Node* tmp = root->right;
 		root->right = tmp->left;
-		tmp->left	= root;
+		tmp->left = root;
 
 		root->height = 1 + max(get_height(root->left), get_height(root->right));
-		tmp->height	 = 1 + max(get_height(tmp->left), get_height(tmp->right));
+		tmp->height = 1 + max(get_height(tmp->left), get_height(tmp->right));
 
 		return tmp;
 	}
@@ -286,7 +286,7 @@ namespace avl_tree {
 			root->left = insert(root->left, val);
 
 		root->height = 1 + max(get_height(root->left), get_height(root->right));
-		int diff	 = get_diff(root);
+		int diff = get_diff(root);
 
 		if(diff > 1 and val < root->left->val) return right_rotate(root);
 
@@ -329,7 +329,7 @@ namespace avl_tree {
 		}
 
 		cout << arr << endl;
-		pre_order(root);
+		avl_tree::pre_order(root);
 		cout << endl;
 	}
 
