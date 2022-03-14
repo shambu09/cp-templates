@@ -27,6 +27,25 @@ std::ostream& operator<<(std::ostream& os,
 	return os << "  " << vec.back() << " ]";
 }
 
+template <class T>
+std::ostream& operator<<(std::ostream& os, const std::list<T>& vec) {
+	if(vec.size() == 0) return os << "[]";
+	os << "[";
+	for(auto i = vec.begin(); next(i) != vec.end(); i++)
+		os << *i << ", ";
+	return os << vec.back() << "]";
+}
+
+template <class T>
+std::ostream& operator<<(std::ostream& os,
+						 const std::list<std::list<T>>& vec) {
+	if(vec.size() == 0) return os << "[]";
+	os << "[ " << vec[0] << ",\n";
+	for(SIZE_TYPE i = 1; i <= (SIZE_TYPE)vec.size() - 2; i++)
+		os << "  " << vec[i] << ",\n";
+	return os << "  " << vec.back() << " ]";
+}
+
 template <class T, std::size_t N>
 std::ostream& operator<<(std::ostream& os, const std::array<T, N>& vec) {
 	os << "[";
@@ -47,6 +66,17 @@ std::ostream& operator<<(std::ostream& os,
 template <class T, class N>
 std::ostream& operator<<(std::ostream& os, const std::pair<T, N> p) {
 	return os << "<" << p.first << ", " << p.second << ">";
+}
+
+template <class T, class N>
+std::ostream& operator<<(std::ostream& os, const std::map<T, N> m) {
+	if(m.size() == 0) return os << "{}";
+	auto i = m.begin();
+	os << "{\n  " << *i << ", \n";
+	i++;
+	for(; next(i) != m.end(); i++)
+		os << "  " << *i << ",\n";
+	return os << "  " << *m.rbegin() << "\n}";
 }
 
 //----------------------------------------------------------------------------------------//

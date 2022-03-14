@@ -74,3 +74,7 @@ completed, max_path_value, coding_ninjas, dp, dfs, graph, directed_graph, dsa, c
 
 completed, edit_distance, leetcode, dp, dsa, string, string_manipulation, cpp, hard - date_2022_03_04_time_23_38_52.cpp
 
+completed, maximization, div_mod, codeforces, greedy, mod, dsa, math, cpp, medium - date_2022_03_10_time_13_42_38.cpp
+
+completed, jumping_numbers, bfs, dfs, brute_force, juspay_old, juspay, dfs, dsa, python, medium - date_2022_03_10_time_13_45_10.py
+

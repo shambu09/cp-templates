@@ -104,6 +104,33 @@ namespace btrie {
 	}
 }  // namespace btrie
 
+namespace disjoin_sets {
+	struct subset {
+		int parent;
+		int rank;
+	};
+
+	int find(subset* subsets, int i) {
+		if(subsets[i].parent == -1) return i;
+		subsets[i].parent = find(subsets, subsets[i].parent);
+		return subsets[i].parent;
+	}
+
+	void make_union(subset* subsets, int x, int y) {
+		x = find(subsets, x);
+		y = find(subsets, y);
+
+		if(subsets[x].rank < subsets[y].rank) {
+			subsets[x].parent = y;
+			subsets[y].rank += subsets[x].rank;
+		} else {
+			subsets[y].parent = x;
+			subsets[x].rank += subsets[y].rank;
+		}
+	}
+
+}  // namespace disjoin_sets
+
 namespace kruskals_mst {
 	struct subset {
 		int parent;
