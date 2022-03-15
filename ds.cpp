@@ -435,7 +435,73 @@ namespace avl_tree {
 
 }  // namespace avl_tree
 
+namespace search {
+	int binary_search(vector<int>& arr, int val) {
+		int left = 0, right = (int)arr.size() - 1;
+		int mid;
+
+		while(left <= right) {
+			mid = left + (right - left) / 2;
+			if(arr[mid] == val) return mid;
+
+			if(arr[mid] < val)
+				left = mid + 1;
+
+			else
+				right = mid - 1;
+		}
+
+		return (int)arr.size();
+	}
+
+	int ternary_search(vector<int>& arr, int val) {
+		int left = 0, right = (int)arr.size() - 1;
+		int mid1, mid2;
+
+		while(left <= right) {
+			mid1 = left + (right - left) / 3;
+			mid2 = mid1 + (right - left) / 3;
+
+			if(arr[mid1] == val) return mid1;
+
+			if(arr[mid2] == val) return mid2;
+
+			if(arr[mid1] > val)
+				right = mid1 - 1;
+
+			else if(arr[mid2] < val)
+				left = mid2 + 1;
+
+			else {
+				left = mid1 + 1;
+				right = mid2 - 1;
+			}
+		}
+
+		return (int)arr.size();
+	}
+
+	void sample() {
+		int n, val;
+		cin >> n;
+		vector<int> arr;
+
+		while(n--) {
+			arr.push_back(int());
+			cin >> arr.back();
+		}
+
+		cin >> val;
+
+		cout << "Binary search Output: ";
+		cout << search::binary_search(arr, val) << endl;
+		cout << "Ternary search Output: ";
+		cout << search::ternary_search(arr, val) << endl;
+	}
+
+}  // namespace search
+
 int main() {
-	avl_tree::sample();
+	search::sample();
 	return 0;
 }
