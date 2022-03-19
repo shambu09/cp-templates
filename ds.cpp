@@ -182,13 +182,13 @@ namespace kruskals_mst {
 	int sample() {
 		int n, e;
 		vector<vector<int>> edges;
-		int d, s, w;
+		int s, d, w;
 
 		cin >> n >> e;
 
 		for(int i = 0; i < e; i++) {
-			cin >> d >> s >> w;
-			edges.push_back({d, s, w});
+			cin >> s >> d >> w;
+			edges.push_back({s, d, w});
 		}
 
 		cout << kruskals_mst::mst(n, edges) << endl;
@@ -501,7 +501,57 @@ namespace search {
 
 }  // namespace search
 
+namespace dijkstra {
+	const int inf = 1e9 + 7;
+	auto comp = ([](auto lhs, auto rhs) { return lhs.first > rhs.first; });
+
+	vector<int> sp(int n, int s, vector<vector<pair<int, int>>> graph) {
+		vector<pair<int, int>> setp;
+		setp.push_back({0, s});
+
+		vector<int> dist(n, inf);
+		dist[s] = 0;
+		while(not setp.empty()) {
+			pop_heap(setp.begin(), setp.end(), comp);
+			auto [_, u] = setp.back();
+			setp.pop_back();
+
+			for(auto [w, v] : graph[u]) {
+				if(dist[v] > dist[u] + w) {
+					if(dist[v] != inf) {
+						auto iter = find(setp.begin(), setp.end(),
+										 make_pair(dist[v], v));
+						iter->first = dist[u] + w;
+						make_heap(setp.begin(), setp.end(), comp);
+					} else {
+						setp.push_back({dist[u] + w, v});
+						push_heap(setp.begin(), setp.end(), comp);
+					}
+					dist[v] = dist[u] + w;
+				}
+			}
+		}
+		return dist;
+	}
+
+	void sample() {
+		int n, e;
+		int s, d, w;
+
+		cin >> n >> e;
+		vector<vector<pair<int, int>>> graph(n);
+
+		for(int i = 0; i < e; i++) {
+			cin >> s >> d >> w;
+			graph[s].push_back({w, d});
+			graph[d].push_back({w, s});
+		}
+
+		cout << dijkstra::sp(n, 0, graph) << endl;
+	}
+}  // namespace dijkstra
+
 int main() {
-	search::sample();
+	dijkstra::sample();
 	return 0;
 }
