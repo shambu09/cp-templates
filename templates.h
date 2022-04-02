@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #ifndef SIZE_TYPE
-#define SIZE_TYPE int
+#define SIZE_TYPE std::size_t
 #endif
 
 #ifndef STORAGE_TYPE
@@ -73,9 +73,18 @@ std::ostream& operator<<(std::ostream& os, const std::map<T, N> m) {
     os << "{\n  " << *i << ", \n";
     i++;
     for(; next(i) != m.end(); i++) os << "  " << *i << ",\n";
-    return os << "  " << *m.rbegin() << "\n}";
+    return os << "  " << *i << "\n}";
 }
 
+template <class T, class N>
+std::ostream& operator<<(std::ostream& os, const std::unordered_map<T, N> m) {
+    if(m.size() == 0) return os << "{}";
+    auto i = m.begin();
+    os << "{\n  " << *i << ", \n";
+    i++;
+    for(; next(i) != m.end(); i++) os << "  " << *i << ",\n";
+    return os << "  " << *i << "\n}";
+}
 //----------------------------------------------------------------------------------------//
 
 //----------------------shortcut for vector.begin() and vector.end()----------------------//
