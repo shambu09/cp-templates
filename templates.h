@@ -6,7 +6,7 @@
 #ifndef STORAGE_TYPE
 #define STORAGE_TYPE int
 #endif
-//--------------- Printing a std::vector and std::array | tags - printing, vector, print----------------//
+//--------------- Printing containers ----------------//
 
 template <class T>
 std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
