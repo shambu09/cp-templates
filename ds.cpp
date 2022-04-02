@@ -505,7 +505,7 @@ namespace dijkstra {
     const int inf = 1e9 + 7;
     auto comp = ([](auto lhs, auto rhs) { return lhs.first > rhs.first; });
 
-    vector<int> sp(int n, int s, vector<vector<pair<int, int>>> graph) {
+    vector<int> sp(int n, int s, vector<vector<pair<int, int>>>& graph) {
         vector<pair<int, int>> setp;
         setp.push_back({0, s});
 
@@ -551,7 +551,55 @@ namespace dijkstra {
     }
 }  // namespace dijkstra
 
+namespace topological_sort {
+    vector<bool> visited;
+    vector<int> s;
+
+    void _sort(int i, vector<vector<int>>& graph) {
+        //global:
+        //vector<bool> visisted;
+        //vector<int> s;
+
+        if(visited[i]) return;
+        visited[i] = true;
+
+        for(int node : graph[i]) _sort(node, graph);
+
+        s.push_back(i);
+    }
+
+    vector<int> sort(int n, vector<vector<int>>& graph) {
+        //global:
+        //vector<bool> visisted;
+        //vector<int> s;
+
+        visited.assign(n, false);
+        s.clear();
+
+        for(int i = 0; i < n; i++) _sort(i, graph);
+
+        reverse(s.begin(), s.end());
+        return s;
+    }
+
+    void sample() {
+        int v, e;
+        cin >> v >> e;
+
+        vector<vector<int>> graph(v);
+        int x, y;
+
+        while(e--) {
+            cin >> x >> y;
+            graph[x].push_back(y);
+        }
+
+        cout << topological_sort::sort(v, graph) << endl;
+    }
+
+}  // namespace topological_sort
+
 int main() {
-    dijkstra::sample();
+    topological_sort::sample();
     return 0;
 }
