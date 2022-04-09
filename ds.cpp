@@ -503,9 +503,10 @@ namespace search {
 
 namespace dijkstra {
     const int inf = 1e9 + 7;
-    auto comp = ([](auto lhs, auto rhs) { return lhs.first > rhs.first; });
+    typedef pair<int, int> ipair;
 
-    vector<int> sp(int n, int s, vector<vector<pair<int, int>>>& graph) {
+    auto comp = ([](auto lhs, auto rhs) { return lhs.first > rhs.first; });
+    vector<int> sp_old(int n, int s, vector<vector<pair<int, int>>>& graph) {
         vector<pair<int, int>> setp;
         setp.push_back({0, s});
 
@@ -532,6 +533,28 @@ namespace dijkstra {
             }
         }
         return dist;
+    }
+
+    vector<int> sp(int v, int s, vector<vector<ipair>>& graph) {
+        priority_queue<ipair, vector<ipair>, greater<ipair>> setp;
+        vector<int> dis(v, inf);
+
+        setp.push({0, s});
+        dis[s] = 0;
+
+        while(not setp.empty()) {
+            auto [_, u] = setp.top();
+            setp.pop();
+
+            for(auto [w, v] : graph[u]) {
+                if(dis[v] > dis[u] + w) {
+                    dis[v] = dis[u] + w;
+                    setp.push({dis[v], v});
+                }
+            }
+        }
+
+        return dis;
     }
 
     void sample() {
