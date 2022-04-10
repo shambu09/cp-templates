@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #ifndef SIZE_TYPE
-#define SIZE_TYPE std::size_t
+#define SIZE_TYPE int
 #endif
 
 #ifndef STORAGE_TYPE
