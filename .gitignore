@@ -12,3 +12,5 @@ todo.txt
 *.o
 temptemp.cpp
 temptemp
+*.sublime-project
+*.sublime-workspace
