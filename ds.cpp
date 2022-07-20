@@ -51,6 +51,7 @@ namespace sll {
 
         return prev;
     }
+
 }  // namespace sll
 
 namespace btrie {
@@ -102,7 +103,82 @@ namespace btrie {
 
         return value;
     }
+
 }  // namespace btrie
+
+namespace min_heap {
+    int left(int node) { return 2 * node + 1; }
+
+    int right(int node) { return 2 * node + 2; }
+
+    int parent(int node) { return (node - 1) / 2; }
+
+    void heapify(vector<int>& heap, int node) {
+        int n = heap.size();
+        int l = left(node);
+        int r = right(node);
+        int min = node;
+
+        if(l < n and heap[l] < heap[min]) {
+            min = l;
+        }
+
+        if(r < n and heap[r] < heap[min]) {
+            min = r;
+        }
+
+        if(min != node) {
+            swap(heap[min], heap[node]);
+            heapify(heap, min);
+        }
+    }
+
+    void push(vector<int>& heap, int val) {
+        heap.push_back(val);
+        int node = heap.size() - 1;
+        while(node > 0 and heap[parent(node)] > heap[node]) {
+            swap(heap[parent(node)], heap[node]);
+            node = parent(node);
+        }
+    }
+
+    int pop(vector<int>& heap) {
+        swap(heap[0], heap[heap.size() - 1]);
+        int last = heap.back();
+        heap.pop_back();
+        heapify(heap, 0);
+        return last;
+    }
+
+    int sample() {
+        int n, tmp;
+        vector<int> nums;
+
+        cin >> n;
+
+        for(int i = 0; i < n; i++) {
+            cin >> tmp;
+            nums.push_back(tmp);
+        }
+
+        cout << nums << endl;
+
+        vector<int> heap;
+
+        for(int num : nums) {
+            min_heap::push(heap, num);
+        }
+
+        cout << heap << endl;
+
+        for(int i = 0; i < n; i++) {
+            cout << min_heap::pop(heap) << " ";
+        }
+
+        return 0;
+    }
+
+}  // namespace min_heap
 
 namespace disjoin_sets {
     struct subset {
@@ -195,6 +271,7 @@ namespace kruskals_mst {
 
         return 0;
     }
+
 }  // namespace kruskals_mst
 
 namespace bin_idx_tree {
@@ -252,6 +329,7 @@ namespace bin_idx_tree {
 
         return 0;
     }
+
 }  // namespace bin_idx_tree
 
 namespace avl_tree {
@@ -406,7 +484,7 @@ namespace avl_tree {
         pre_order(root->right);
     }
 
-    void sample() {
+    int sample() {
         int n, tmp;
         vector<int> arr;
 
@@ -431,6 +509,8 @@ namespace avl_tree {
         root = avl_tree::del(root, 10);
         avl_tree::pre_order(root);
         cout << endl;
+
+        return 0;
     }
 
 }  // namespace avl_tree
@@ -481,7 +561,7 @@ namespace search {
         return (int)arr.size();
     }
 
-    void sample() {
+    int sample() {
         int n, val;
         cin >> n;
         vector<int> arr;
@@ -497,6 +577,8 @@ namespace search {
         cout << search::binary_search(arr, val) << endl;
         cout << "Ternary search Output: ";
         cout << search::ternary_search(arr, val) << endl;
+
+        return 0;
     }
 
 }  // namespace search
@@ -557,7 +639,7 @@ namespace dijkstra {
         return dis;
     }
 
-    void sample() {
+    int sample() {
         int n, e;
         int s, d, w;
 
@@ -571,7 +653,10 @@ namespace dijkstra {
         }
 
         cout << dijkstra::sp(n, 0, graph) << endl;
+
+        return 0;
     }
+
 }  // namespace dijkstra
 
 namespace topological_sort {
@@ -605,7 +690,7 @@ namespace topological_sort {
         return s;
     }
 
-    void sample() {
+    int sample() {
         int v, e;
         cin >> v >> e;
 
@@ -618,11 +703,13 @@ namespace topological_sort {
         }
 
         cout << topological_sort::sort(v, graph) << endl;
+
+        return 0;
     }
 
 }  // namespace topological_sort
 
 int main() {
-    topological_sort::sample();
+    min_heap::sample();
     return 0;
 }
