@@ -94,3 +94,5 @@ completed, jongmah, jogmah, codeforces, dp, dsa, math, cpp, hard - date_2022_03_
 
 completed, rotate_array_inplace, inplace, rotate, leetcode, cpp, hard - date_2022_03_18_time_14_32_13.cpp
 
+completed, longest_substring, substring, dp, leetcode, java, medium - date_2023_09_22_time_17_11_58.java
+
