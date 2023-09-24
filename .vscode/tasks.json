@@ -1,0 +1,55 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run python file",
+            "type": "shell",
+            "command": [
+                "cat ${workspaceFolder}/in.txt",
+                "| python3 ${file}",
+                "> ${workspaceFolder}/out.txt"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": "**/*.py"
+            },
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "Run cpp file",
+            "type": "shell",
+            "command": [
+                "g++ ${file} -o out.o",
+                "&& cat ${workspaceFolder}/in.txt",
+                "| ${workspaceFolder}/out.o",
+                "> ${workspaceFolder}/out.txt"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": "**/*.cpp"
+            },
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "Run java file",
+            "type": "shell",
+            "command": [
+                "javac ${file}",
+                "&& cat ${workspaceFolder}/in.txt",
+                "| java ${fileBasenameNoExtension}",
+                "> ${workspaceFolder}/out.txt"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": "**/*.java"
+            },
+            "presentation": {
+                "reveal": "silent"
+            }
+        }
+    ]
+}

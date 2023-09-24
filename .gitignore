@@ -18,6 +18,3 @@ temptemp.cpp
 temptemp
 *.sublime-project
 *.sublime-workspace
-in.txt
-out.txt
-.vscode

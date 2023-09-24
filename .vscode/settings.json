@@ -1,0 +1,8 @@
+{
+    "java.project.resourceFilters": [
+        "archive"
+    ],
+    "java.project.sourcePaths": [
+        ""
+    ],
+}
